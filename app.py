@@ -17,18 +17,20 @@ def results():
 
     all_teams = ["Hawks", "Celtics", "Nets", "Hornets", "Bulls", "Cavaliers", "Mavericks", "Nuggets", "Pistons", "Warriors", "Rockets", "Pacers", "Clippers", "Lakers", "Grizzlies", "Heat", "Bucks", "Timberwolves", "Pelicans", "Knicks", "Thunder", "Magic", "76ers", "Suns", "Trail Blazers", "Kings", "Spurs", "Raptors", "Jazz", "Wizards", "Supersonics", "Bobcats", "Bullets"]
 
-    team = request.args.get('search-team');
+    team = request.args.get('search-team')
     year = request.args.get('search-year')
 
-    cantheywin = "NO";
+    cantheywin = "NO"
+    display_image = "show"
 
     if team == "Warriors" and year == "2016-2017" or team == "Bulls" and year == "1995-1996":
         cantheywin = "YES"
+        display_image = "hide"
     else:
         cantheywin = "NO"
 
 
-    return render_template("results.html", team=team, year=year, cantheywin=cantheywin, all_teams=all_teams)
+    return render_template("results.html", team=team, year=year, cantheywin=cantheywin, all_teams=all_teams, display_image=display_image)
 
 if os.environ.get('ENV') == 'production':
     debug = False

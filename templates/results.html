@@ -5,7 +5,7 @@
 <script src="awesomplete.js" async></script>
 
 
-	<h1>Can the {{year}} {{team}} beat the Warriors?</h1>
+	<h1>Could the {{year}} {{team}} beat the Warriors?</h1>
 
 	<div class="searchbar">
 		<form action="{{url_for('results')}}" method="GET">
@@ -49,7 +49,7 @@
 				<option value="1980-1981">1980-1981</option>
 			</select>
 			<input class="input-box awesomeplete" type="text" name="search-team" placeholder="Enter a team" list="mylist" required>
-			<button type="submit" class="button">Can they?</button>
+			<button type="submit" class="button">Could they?</button>
 		</form>
 	</div>
 
@@ -60,13 +60,15 @@
 	</datalist>
 
 		<h1 id="no" class={{cantheywin}}>{{cantheywin}}</h1>
+		<div class="picture"><img class="{{display_image}}" src="{{url_for('static', filename='images/smirk.jpg')}}" alt=""></div>
 
 
 <script>
 $(function(){
 
 	$(".searchbar").click(function(e){
-		$("#no").addClass("big-no-hidden")
+		$("#no").addClass("big-no-hidden");
+		$(".picture").addClass("big-no-hidden");
 	})
 	 
 });
