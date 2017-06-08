@@ -14,7 +14,9 @@ def search():
 
 @app.route('/results', methods=[ "GET"])
 def results():
-    return render_template("results.html")
+    team = request.args.get('search-team');
+    year = request.args.get('search-year')
+    return render_template("results.html", team=team, year=year)
 
 if os.environ.get('ENV') == 'production':
     debug = False
