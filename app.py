@@ -14,9 +14,21 @@ def search():
 
 @app.route('/results', methods=[ "GET"])
 def results():
+
+    all_teams = ["Hawks", "Celtics", "Nets", "Hornets", "Bulls", "Cavaliers", "Mavericks", "Nuggets", "Pistons", "Warriors", "Rockets", "Pacers", "Clippers", "Lakers", "Grizzlies", "Heat", "Bucks", "Timberwolves", "Pelicans", "Knicks", "Thunder", "Magic", "76ers", "Suns", "Trail Blazers", "Kings", "Spurs", "Raptors", "Jazz", "Wizards", "Supersonics", "Bobcats", "Bullets"]
+
     team = request.args.get('search-team');
     year = request.args.get('search-year')
-    return render_template("results.html", team=team, year=year)
+
+    cantheywin = "NO";
+
+    if team == "Warriors" and year == "2016-2017" or team == "Bulls" and year == "1995-1996":
+        cantheywin = "YES"
+    else:
+        cantheywin = "NO"
+
+
+    return render_template("results.html", team=team, year=year, cantheywin=cantheywin, all_teams=all_teams)
 
 if os.environ.get('ENV') == 'production':
     debug = False

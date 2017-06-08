@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<link rel="stylesheet" href="awesomplete.css" />
+<script src="awesomplete.js" async></script>
+
 
 	<h1>Can the {{year}} {{team}} beat the Warriors?</h1>
 
@@ -45,12 +48,18 @@
 				<option value="2015-2016">2015-2016</option>
 				<option value="2016-2017">2016-2017</option>
 			</select>
-			<input class="input-box" type="text" name="search-team" placeholder="Enter a team" required>
+			<input class="input-box awesomeplete" type="text" name="search-team" placeholder="Enter a team" list="mylist" required>
 			<button type="submit" class="button">Can they?</button>
 		</form>
 	</div>
 
-		<h1 id="no">No</h1>
+	<datalist id="mylist">
+	{% for t in all_teams %}
+		<option>{{t}}</option>
+	{% endfor %}
+	</datalist>
+
+		<h1 id="no" class={{cantheywin}}>{{cantheywin}}</h1>
 
 
 <script>
@@ -62,7 +71,6 @@ $(function(){
 	 
 });
 </script>
-
 
 
 

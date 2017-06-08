@@ -2,6 +2,10 @@
 	display: none;
 }
 
-#no {
+.YES {
+	color: green;
+}
+
+.NO {
 	color: red;
 }
