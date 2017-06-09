@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="awesomplete.css" />
 <script src="awesomplete.js" async></script>
 
-
+	
 	<h1>Could the {{year}} {{team}} beat the Warriors?</h1>
 
 	<div class="searchbar">
@@ -59,10 +59,10 @@
 	{% endfor %}
 	</datalist>
 
-		<h1 id="no" class={{cantheywin}}>{{cantheywin}}</h1>
+		<h1 id="no" class={{cantheywin}}>{{cantheywin}}{{question}}</h1>
 		<div class="picture"><img class="{{display_image}}" src="{{url_for('static', filename='images/smirk.jpg')}}" alt=""></div>
 		<div class="gif"><img src="https://i.giphy.com/rrYfvW8z0v0qc.webp" class="{{clap}}"></img></div>
-
+		<div class="gif"><img src="http://gifrific.com/wp-content/uploads/2014/07/Michael-Jordan-Shrug-After-3-Pointer.gif" class="{{bullshrug}}"></img></div>
 
 <script>
 $(function(){

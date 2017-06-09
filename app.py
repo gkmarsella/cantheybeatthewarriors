@@ -23,6 +23,8 @@ def results():
     cantheywin = "NO"
     display_image = "hide"
     clap = "hide"
+    bullshrug = "hide"
+    question = ""
 
     not_a_team = "That's not a team, but the Warriors could still beat them."
 
@@ -36,11 +38,20 @@ def results():
     if team.lower() not in all_teams:
         cantheywin = "That's not a team, but the Warriors could still beat them."
 
-    if team.lower() == "lakers" and year == "1986-1987" or team.lower() == "bulls" and year == "1995-1996":
+    if team.lower() == "lakers" and year == "1986-1987":
         display_image = "show"
         cantheywin = "NO"
 
-    return render_template("results.html", team=team, year=year, cantheywin=cantheywin, all_teams=all_teams, display_image=display_image, clap=clap)
+
+    if team.lower() == "bulls" and year == "1995-1996":
+        cantheywin = "maybe"
+        bullshrug = "show"
+
+    if cantheywin == "maybe":
+        question = "?"
+
+
+    return render_template("results.html", team=team, year=year, cantheywin=cantheywin, all_teams=all_teams, display_image=display_image, clap=clap, bullshrug=bullshrug, question=question)
 
 if os.environ.get('ENV') == 'production':
     debug = False
