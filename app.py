@@ -32,7 +32,7 @@ def results():
 
 
     if team.lower() not in all_teams:
-        cantheywin = "That's not a team, but the warriors could still beat them."
+        cantheywin = "That's not a team, but the Warriors could still beat them."
 
     if team.lower() == "lakers" and year == "1986-1987" or team.lower() == "bulls" and year == "1995-1996":
         display_image = "show"
