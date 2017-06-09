@@ -23,7 +23,7 @@ def results():
     cantheywin = "NO"
     display_image = "hide"
 
-    not_a_team = "That's not a team, but the warriors could still beat them."
+    not_a_team = "That's not a team, but the Warriors could still beat them."
 
     if team.lower() == "warriors" and year == "2016-2017" or team.lower() == "bulls" and year == "1995-1996":
         cantheywin = "YES"
@@ -36,6 +36,7 @@ def results():
 
     if team.lower() == "lakers" and year == "1986-1987" or team.lower() == "bulls" and year == "1995-1996":
         display_image = "show"
+        cantheywin = "NO"
 
     return render_template("results.html", team=team, year=year, cantheywin=cantheywin, all_teams=all_teams, display_image=display_image)
 
